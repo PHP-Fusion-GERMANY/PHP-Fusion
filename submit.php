@@ -106,9 +106,9 @@ if ($_GET['stype'] == "n") {
                 </div>
             </div>
             <div class="form-group">
-                <label for="news_cats" class="col-sm-2 control-label"><?= $locale['476'] ?></label>
+                <label for="news_cat" class="col-sm-2 control-label"><?= $locale['476'] ?></label>
                 <div class="col-sm-10">
-                    <select id="news_cats" name="news_cats" class="form-control">
+                    <select id="news_cat" name="news_cat" class="form-control">
                         <option value="0"><?= $locale['477'] ?></option>
                         <?= $cat_list ?>
                     </select>
