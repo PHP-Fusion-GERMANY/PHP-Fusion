@@ -611,11 +611,16 @@ function censorwords($text) {
 }
 
 // Display the user's level
-function getuserlevel($userlevel) {
-	global $locale;
-	if ($userlevel == 101) { return $locale['user1'];
-	} elseif ($userlevel == 102) { return $locale['user2'];
-	} elseif ($userlevel == 103) { return $locale['user3']; }
+function getuserlevel($userlevel)
+{
+    global $locale;
+    if ($userlevel == 101) {
+        return "<i class='fa fa-user'></i> ".$locale['user1'];
+    } elseif ($userlevel == 102) {
+        return "<i class='fa fa-shield'></i> ".$locale['user2'];
+    } elseif ($userlevel == 103) {
+        return "<i class='fa fa-shield'></i> ".$locale['user3'];
+    }
 }
 
 // Display the user's status

@@ -48,7 +48,8 @@ if (isset($_GET['lookup']) && isnum($_GET['lookup'])) {
 		}
 	}
 
-	opentable($locale['u104']." ".$user_data['user_name']);
+	// opentable($locale['u104']." ".$user_data['user_name']);
+	opentable("");
 	$userFields 					= new UserFields();
 	$userFields->userData 			= $user_data;
 	$userFields->showAdminOptions 	= true;
