@@ -48,7 +48,7 @@ function dbconnect($db_host, $db_user, $db_pass, $db_name) {
 
 /**
  * dbquery() sends an unique query to the database.
- * @param resource $query A SQL query, The query string should not end with a semicolon.
+ * @param string $query A SQL query, The query string should not end with a semicolon.
  * @param array $execute
  * @return mixed FALSE or an array $result
  */
