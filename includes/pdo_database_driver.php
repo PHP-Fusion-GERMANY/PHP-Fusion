@@ -41,6 +41,7 @@ function dbconnect($db_host, $db_user, $db_pass, $db_name) {
 
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+        $pdo->setAttribute(PDO::ATTR_PERSISTENT, true);
     } catch (PDOException $error) {
         die("<strong>Unable to select MySQL database</strong><br />" . $error->getMessage());
     }
