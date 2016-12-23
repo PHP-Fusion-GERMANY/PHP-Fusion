@@ -130,9 +130,13 @@ function newsposter($info, $sep = "", $class = "") {
 function newsopts($info, $sep, $class = "") {
 	global $locale, $settings; $res = "";
 	$link_class = $class ? " class='$class' " : "";
-	if (!isset($_GET['readmore']) && $info['news_ext'] == "y") $res = "<a href='news.php?readmore=".$info['news_id']."'".$link_class.">".$locale['global_072']."</a> ".$sep." ";
-	if ($info['news_allow_comments'] && $settings['comments_enabled'] == "1") { $res .= "<a href='news.php?readmore=".$info['news_id']."#comments'".$link_class.">".$info['news_comments'].($info['news_comments'] == 1 ? $locale['global_073b'] : $locale['global_073'])."</a> ".$sep." "; }
-	if ($info['news_ext'] == "y" || ($info['news_allow_comments'] && $settings['comments_enabled'] == "1")) { $res .= $info['news_reads'].$locale['global_074']."\n ".$sep; }
+    if (!isset($_GET['readmore']) && $info['news_ext'] == "y") $res = "<a href='".pageurl('news',$info['news_subject'],'readmore/'.info['news_id'])."'".$link_class.">".$locale['global_072']."</a> ".$sep." ";
+	if ($info['news_allow_comments'] && $settings['comments_enabled'] == "1") {
+	    $res .= "<a href='".pageurl('news',$info['news_subject'],'readmore/'.$info['news_id'],"#comments")."'".$link_class.">".$info['news_comments'].($info['news_comments'] == 1 ? $locale['global_073b'] : $locale['global_073'])."</a> ".$sep." ";
+    }
+	if ($info['news_ext'] == "y" || ($info['news_allow_comments'] && $settings['comments_enabled'] == "1")) {
+	    $res .= $info['news_reads'].$locale['global_074']."\n ".$sep;
+    }
 	$res .= "<a href='print.php?type=N&amp;item_id=".$info['news_id']."'><img src='".get_image("printer")."' alt='".$locale['global_075']."' style='vertical-align:middle;border:0;' /></a>\n";
 	return "<!--news_opts-->".$res;
 }
