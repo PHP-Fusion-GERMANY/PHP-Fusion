@@ -15,11 +15,24 @@
 | copyright header is strictly prohibited without
 | written permission from the original author(s).
 +--------------------------------------------------------*/
-require_once "maincore.php";
+if(!defined('IN_FUSION')) header('location: index.html');
+
 require_once THEMES."templates/header.php";
 
 // Predefined variables, do not edit these values
 $i = 0;
+/**
+ * @var $params[1] readmore or rowstart.
+ * @var $params[2] if readmore = int news_id, if rowstart = int rowstart.
+ * @var $params[3] string news_subject
+ */
+
+if (isset($params[1]) && $params[1] == 'readmore') {
+    $_GET['readmore'] = $params[2];
+}
+if (isset($params[1]) && $params[1] == 'rowstart') {
+    $_GET['rowstart'] = $params[2];
+}
 
 // Number of news displayed
 $items_per_page = $settings['newsperpage'];
